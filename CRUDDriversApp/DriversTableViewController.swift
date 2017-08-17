@@ -48,13 +48,13 @@ class DriversTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! DriversTableViewCell
 
         cell.tag = indexPath.row
-        carDriver = getAllData.object(at: indexPath.row) as! CarDriver
         
-        cell.firstNameLabel?.text = carDriver.driver.firstName
-        cell.lastNameLabel?.text = carDriver.driver.lastName
-        cell.carMarkLabel?.text = carDriver.car.carMark
-        cell.carModelLabel?.text = carDriver.car.carModel
-        cell.carNumberLabel?.text = carDriver.car.carNumber
+        carDriver = getAllData.object(at: indexPath.row) as! CarDriver
+        cell.firstNameLabel.text = carDriver.driver.firstName
+        cell.lastNameLabel.text = carDriver.driver.lastName
+        cell.carMarkLabel.text = carDriver.car.carMark
+        cell.carModelLabel.text = carDriver.car.carModel
+        cell.carNumberLabel.text = carDriver.car.carNumber
         
         // Configure the cell...
         

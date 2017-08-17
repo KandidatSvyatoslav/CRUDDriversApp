@@ -26,6 +26,7 @@
 		84401B531F4559BF00B4F3B8 /* ObjectModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84401B521F4559BF00B4F3B8 /* ObjectModels.swift */; };
 		84401B551F455D5A00B4F3B8 /* FMDBDatabaseEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84401B541F455D5A00B4F3B8 /* FMDBDatabaseEngine.swift */; };
 		84401B571F456C5000B4F3B8 /* DBDrivers.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 84401B561F456C5000B4F3B8 /* DBDrivers.sqlite */; };
+		849418AD1F45DEF0001E1190 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849418AC1F45DEF0001E1190 /* EditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		84401B521F4559BF00B4F3B8 /* ObjectModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectModels.swift; sourceTree = "<group>"; };
 		84401B541F455D5A00B4F3B8 /* FMDBDatabaseEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBDatabaseEngine.swift; sourceTree = "<group>"; };
 		84401B561F456C5000B4F3B8 /* DBDrivers.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = DBDrivers.sqlite; sourceTree = "<group>"; };
+		849418AC1F45DEF0001E1190 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				84401B1F1F45520B00B4F3B8 /* AppDelegate.swift */,
 				84401B211F45520B00B4F3B8 /* ViewController.swift */,
 				84401B231F45520B00B4F3B8 /* Main.storyboard */,
+				849418AC1F45DEF0001E1190 /* EditViewController.swift */,
 				84401B521F4559BF00B4F3B8 /* ObjectModels.swift */,
 				84401B501F4557E300B4F3B8 /* InsertViewController.swift */,
 				84401B4E1F45574400B4F3B8 /* DriversTableViewController.swift */,
@@ -218,6 +221,7 @@
 				84401B431F4553B700B4F3B8 /* FMResultSet.m in Sources */,
 				84401B511F4557E300B4F3B8 /* InsertViewController.swift in Sources */,
 				84401B4D1F45572600B4F3B8 /* DriversTableViewCell.swift in Sources */,
+				849418AD1F45DEF0001E1190 /* EditViewController.swift in Sources */,
 				84401B491F45552300B4F3B8 /* Util.swift in Sources */,
 				84401B411F4553B700B4F3B8 /* FMDatabasePool.m in Sources */,
 				84401B4F1F45574400B4F3B8 /* DriversTableViewController.swift in Sources */,
@@ -392,6 +396,7 @@
 				84401B301F45520B00B4F3B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
