@@ -11,6 +11,7 @@ import UIKit
 class EditViewController: UIViewController {
 
     
+    @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var carMarkTextField: UITextField!
@@ -18,15 +19,28 @@ class EditViewController: UIViewController {
     @IBOutlet weak var carNumberTextField: UITextField!
     
     
+    var getID = Int()
+    var getFName = ""
+    var getLName = ""
+    var getcarMark = ""
+    var getcarModel = ""
+    var getcarNumber = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        firstNameTextField.text = getFName
+        lastNameTextField.text = getLName
+        carMarkTextField.text = getcarMark
+        carModelTextField.text = getcarModel
+        carNumberTextField .text = getcarNumber
+        idLabel.text = String(getID)
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func btnPressed(_ sender: Any) {
+        _ = FMDBDatabaseModel.getInstance().updateRecord(firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, carMark: carMarkTextField.text!, carModel: carModelTextField.text!, carNumber: carNumberTextField.text!, recID: getID)
+        print("update")
+        
     }
     
 

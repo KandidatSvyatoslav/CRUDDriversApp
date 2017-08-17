@@ -21,12 +21,12 @@
 		84401B471F4553E200B4F3B8 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84401B461F4553E200B4F3B8 /* libsqlite3.0.tbd */; };
 		84401B491F45552300B4F3B8 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84401B481F45552300B4F3B8 /* Util.swift */; };
 		84401B4D1F45572600B4F3B8 /* DriversTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84401B4C1F45572600B4F3B8 /* DriversTableViewCell.swift */; };
-		84401B4F1F45574400B4F3B8 /* DriversTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84401B4E1F45574400B4F3B8 /* DriversTableViewController.swift */; };
 		84401B511F4557E300B4F3B8 /* InsertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84401B501F4557E300B4F3B8 /* InsertViewController.swift */; };
 		84401B531F4559BF00B4F3B8 /* ObjectModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84401B521F4559BF00B4F3B8 /* ObjectModels.swift */; };
 		84401B551F455D5A00B4F3B8 /* FMDBDatabaseEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84401B541F455D5A00B4F3B8 /* FMDBDatabaseEngine.swift */; };
 		84401B571F456C5000B4F3B8 /* DBDrivers.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 84401B561F456C5000B4F3B8 /* DBDrivers.sqlite */; };
 		849418AD1F45DEF0001E1190 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849418AC1F45DEF0001E1190 /* EditViewController.swift */; };
+		849418AE1F45EC1A001E1190 /* DriversTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84401B4E1F45574400B4F3B8 /* DriversTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -224,10 +224,10 @@
 				849418AD1F45DEF0001E1190 /* EditViewController.swift in Sources */,
 				84401B491F45552300B4F3B8 /* Util.swift in Sources */,
 				84401B411F4553B700B4F3B8 /* FMDatabasePool.m in Sources */,
-				84401B4F1F45574400B4F3B8 /* DriversTableViewController.swift in Sources */,
 				84401B201F45520B00B4F3B8 /* AppDelegate.swift in Sources */,
 				84401B551F455D5A00B4F3B8 /* FMDBDatabaseEngine.swift in Sources */,
 				84401B401F4553B700B4F3B8 /* FMDatabaseAdditions.m in Sources */,
+				849418AE1F45EC1A001E1190 /* DriversTableViewController.swift in Sources */,
 				84401B421F4553B700B4F3B8 /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

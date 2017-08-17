@@ -63,17 +63,41 @@ class DriversTableViewController: UITableViewController {
     
 
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        // action One - edit on swipe
+        var sender: DriversTableViewCell = DriversTableViewCell()
+        
+
+        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: {[carDriver](action, indexPath) in
+            self.carDriver = self.getAllData.object(at: sender.tag) as! CarDriver
+             self.DriversTableView.reloadData()
+            let DV = self.storyboard?.instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
+            
+            DV.getID = carDriver.driver.Id
+            DV.getFName = carDriver.driver.firstName
+            DV.getLName = carDriver.driver.lastName
+            DV.getcarMark = carDriver.car.carMark
+            DV.getcarModel = carDriver.car.carModel
+            DV.getcarNumber = carDriver.car.carNumber
+            
+            self.navigationController?.pushViewController(DV, animated: true)
+        })
+        // action two - delete on swipe
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: {[carDriver](action, indexPath) in
+             self.DriversTableView.reloadData()
+            self.carDriver = self.getAllData.object(at: sender.tag) as! CarDriver
+            
+            _ = FMDBDatabaseModel.getInstance().deleteRecord(recID: carDriver.driver.Id)
+            self.getAllData = FMDBDatabaseModel.getInstance().getAllData()
+            self.DriversTableView.reloadData()
+
+        })
+        
+        editAction.backgroundColor = UIColor.blue
+        deleteAction.backgroundColor = UIColor.red
+        
+        return [deleteAction, editAction]
     }
-    */
 
    
 }
