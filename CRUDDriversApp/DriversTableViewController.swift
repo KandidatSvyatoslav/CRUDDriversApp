@@ -8,12 +8,13 @@
 
 import UIKit
 
-class DriversTableViewController: UITableViewController {
+class DriversTableViewController: UITableViewController, buttonDeleget {
 
     @IBOutlet var DriversTableView: UITableView!
     
     var carDriver = CarDriver()
     var getAllData = NSMutableArray()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class DriversTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
 
     override func viewWillAppear(_ animated: Bool) {
         getAllData = FMDBDatabaseModel.getInstance().getAllData()
@@ -46,7 +48,7 @@ class DriversTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! DriversTableViewCell
-
+       cell.editData = self as? buttonDeleget
         cell.tag = indexPath.row
         
         carDriver = getAllData.object(at: indexPath.row) as! CarDriver
@@ -60,44 +62,38 @@ class DriversTableViewController: UITableViewController {
         
         return cell
     }
+    func EditButton(sender: DriversTableViewCell) {
+        
+        print("editClicked")
+        
+        let DV = storyboard?.instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
+        
+        
+        carDriver = getAllData.object(at: sender.tag) as! CarDriver
+        DV.getID = carDriver.driver.Id
+        DV.getFName = carDriver.driver.firstName
+        DV.getLName = carDriver.driver.lastName
+        DV.getcarMark = carDriver.car.carMark
+        DV.getcarModel = carDriver.car.carModel
+        DV.getcarNumber = carDriver.car.carNumber
+        
+        self.navigationController?.pushViewController(DV, animated: true)
+        
+    }
+    
+    func DeleteButton(sender: DriversTableViewCell) {
+        print("deleteClicked")
+        carDriver = getAllData.object(at: sender.tag) as! CarDriver
+        
+        _ = FMDBDatabaseModel.getInstance().deleteRecord(recID: carDriver.driver.Id)
+        getAllData = FMDBDatabaseModel.getInstance().getAllData()
+        DriversTableView.reloadData()
+        
+    }
+    
     
 
 
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        // action One - edit on swipe
-        var sender: DriversTableViewCell = DriversTableViewCell()
-        
-
-        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: {[carDriver](action, indexPath) in
-            self.carDriver = self.getAllData.object(at: sender.tag) as! CarDriver
-             self.DriversTableView.reloadData()
-            let DV = self.storyboard?.instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
-            
-            DV.getID = carDriver.driver.Id
-            DV.getFName = carDriver.driver.firstName
-            DV.getLName = carDriver.driver.lastName
-            DV.getcarMark = carDriver.car.carMark
-            DV.getcarModel = carDriver.car.carModel
-            DV.getcarNumber = carDriver.car.carNumber
-            
-            self.navigationController?.pushViewController(DV, animated: true)
-        })
-        // action two - delete on swipe
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: {[carDriver](action, indexPath) in
-             self.DriversTableView.reloadData()
-            self.carDriver = self.getAllData.object(at: sender.tag) as! CarDriver
-            
-            _ = FMDBDatabaseModel.getInstance().deleteRecord(recID: carDriver.driver.Id)
-            self.getAllData = FMDBDatabaseModel.getInstance().getAllData()
-            self.DriversTableView.reloadData()
-
-        })
-        
-        editAction.backgroundColor = UIColor.blue
-        deleteAction.backgroundColor = UIColor.red
-        
-        return [deleteAction, editAction]
-    }
 
    
 }

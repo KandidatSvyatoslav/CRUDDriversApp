@@ -104,6 +104,7 @@ class FMDBDatabaseModel: NSObject {
                 item.car.carModel = String(resultSet.string(forColumn: "Car_Model")!)
                 item.car.carNumber = String(resultSet.string(forColumn: "Car_number")!)
                 itemDrivers.add(item)
+                print(item.driver.Id)
         }
         
         sharedInstance.database!.close()
