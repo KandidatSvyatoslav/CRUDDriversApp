@@ -15,7 +15,7 @@ class FMDBDatabaseModel: NSObject {
     var database: FMDatabase? = nil
     
     class func getInstance() -> FMDBDatabaseModel {
-        
+        // singleton
         if (sharedInstance.database == nil) {
             sharedInstance.database = FMDatabase(path: Util.getPath(fileName: "DBDrivers.sqlite"))
         }
@@ -23,6 +23,7 @@ class FMDBDatabaseModel: NSObject {
     }
     
     func insertData (_ carDriver: CarDriver) -> Bool {
+        // sql request - insert
         sharedInstance.database!.open()
         let isInserted = sharedInstance.database!.executeUpdate("INSERT INTO Drivers(First_Name, Last_Name, Car_Mark, Car_Model, Car_number) VALUES(?,?,?,?,?)", withArgumentsIn: [carDriver.driver.firstName, carDriver.driver.lastName, carDriver.car.carMark, carDriver.car.carModel, carDriver.car.carNumber])
         
@@ -32,7 +33,7 @@ class FMDBDatabaseModel: NSObject {
     }
     
     func getAllData() -> NSMutableArray {
-        
+        // sql request - select select and download all data
         sharedInstance.database!.open()
         
         let resultSet: FMResultSet! = sharedInstance.database!.executeQuery("SELECT * FROM Drivers", withArgumentsIn: [0])
