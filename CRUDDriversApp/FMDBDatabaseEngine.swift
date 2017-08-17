@@ -24,7 +24,7 @@ class FMDBDatabaseModel: NSObject {
     
     func insertData (_ carDriver: CarDriver) -> Bool {
         sharedInstance.database!.open()
-        let isInserted = sharedInstance.database!.executeUpdate("INSERT INTO Drivers(First_Name, Last_Name, Car_Mark, Car_Model, Car_number) VALUES(?,?,?,?,?)", withArgumentsIn: [carDriver.driver?.firstName as Any, carDriver.driver?.lastName as Any, carDriver.car?.carMark as Any, carDriver.car?.carModel as Any, carDriver.car?.carNumber as Any])
+        let isInserted = sharedInstance.database!.executeUpdate("INSERT INTO Drivers(First_Name, Last_Name, Car_Mark, Car_Model, Car_number) VALUES(?,?,?,?,?)", withArgumentsIn: [carDriver.driver.firstName, carDriver.driver.lastName, carDriver.car.carMark, carDriver.car.carModel, carDriver.car.carNumber])
         
         sharedInstance.database!.close()
         
@@ -42,13 +42,13 @@ class FMDBDatabaseModel: NSObject {
             
             while resultSet.next() {
                 let item: CarDriver = CarDriver()
-                item.driver?.Id = Int(resultSet.int(forColumn: "ID"))
-                item.car?.Id = Int(resultSet.int(forColumn: "ID"))
-                item.driver?.firstName = String(resultSet.string(forColumn: "First_Name")!)
-                item.driver?.lastName = String(resultSet.string(forColumn: "Last_Name")!)
-                item.car?.carMark = String(resultSet.string(forColumn: "Car_Mark")!)
-                item.car?.carModel = String(resultSet.string(forColumn: "Car_Model")!)
-                item.car?.carNumber = String(resultSet.string(forColumn: "Car_number")!)
+                item.driver.Id = Int(resultSet.int(forColumn: "ID"))
+                item.car.Id = Int(resultSet.int(forColumn: "ID"))
+                item.driver.firstName = String(resultSet.string(forColumn: "First_Name")!)
+                item.driver.lastName = String(resultSet.string(forColumn: "Last_Name")!)
+                item.car.carMark = String(resultSet.string(forColumn: "Car_Mark")!)
+                item.car.carModel = String(resultSet.string(forColumn: "Car_Model")!)
+                item.car.carNumber = String(resultSet.string(forColumn: "Car_number")!)
                 itemDrivers.add(item)
             }
         }

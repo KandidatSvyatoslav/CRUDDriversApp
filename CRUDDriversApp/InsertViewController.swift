@@ -36,11 +36,11 @@ class InsertViewController: UIViewController {
         
         if ((firstNameTextField.text != nil) || (lastNameTextField.text != nil) || (carMarkTextField.text != nil) || (carModelTextField.text != nil) || (carNumberTextField.text != nil)) {
         
-        carDriver.driver?.firstName = firstNameTextField.text!
-        carDriver.driver?.lastName = lastNameTextField.text!
-        carDriver.car?.carMark = carMarkTextField.text!
-        carDriver.car?.carModel = carModelTextField.text!
-        carDriver.car?.carNumber = carNumberTextField.text!
+        carDriver.driver.firstName = firstNameTextField.text!
+        carDriver.driver.lastName = lastNameTextField.text!
+        carDriver.car.carMark = carMarkTextField.text!
+        carDriver.car.carModel = carModelTextField.text!
+        carDriver.car.carNumber = carNumberTextField.text!
 
         
         let isInserted = FMDBDatabaseModel.getInstance().insertData(carDriver)

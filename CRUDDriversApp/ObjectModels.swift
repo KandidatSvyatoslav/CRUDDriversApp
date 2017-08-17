@@ -27,6 +27,6 @@ class Car: NSObject, Identifier {
 }
 
 class CarDriver: NSObject {
-    var driver: Driver?
-    var car: Car?
+    var driver: Driver = Driver()
+    var car: Car = Car()
 }

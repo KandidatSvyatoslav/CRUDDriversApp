@@ -35,7 +35,7 @@ class DriversTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,11 +50,11 @@ class DriversTableViewController: UITableViewController {
         cell.tag = indexPath.row
         carDriver = getAllData.object(at: indexPath.row) as! CarDriver
         
-        cell.firstNameLabel?.text = carDriver.driver?.firstName
-        cell.lastNameLabel?.text = carDriver.driver?.lastName
-        cell.carMarkLabel?.text = carDriver.car?.carMark
-        cell.carModelLabel?.text = carDriver.car?.carModel
-        cell.carNumberLabel?.text = carDriver.car?.carNumber
+        cell.firstNameLabel?.text = carDriver.driver.firstName
+        cell.lastNameLabel?.text = carDriver.driver.lastName
+        cell.carMarkLabel?.text = carDriver.car.carMark
+        cell.carModelLabel?.text = carDriver.car.carModel
+        cell.carNumberLabel?.text = carDriver.car.carNumber
         
         // Configure the cell...
         
